@@ -82,3 +82,4 @@
   ## 经典习题
   
   * [LeetCode-34在排序数组中查找元素的第一个和最后一个位置](https://github.com/jsgygujun/leetcode-report/blob/master/src/main/java/com/jsgygujun/code/problem/_00001_00100/_00034/Solution.java)
+  * [LeetCode-35搜索插入位置](https://github.com/jsgygujun/leetcode-report/blob/master/src/main/java/com/jsgygujun/code/problem/_00001_00100/_00035/Solution.java)
