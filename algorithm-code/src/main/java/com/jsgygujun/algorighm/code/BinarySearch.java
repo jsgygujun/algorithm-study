@@ -45,7 +45,7 @@ public class BinarySearch {
             else if (nums[mid] < target) lo = mid + 1;
             else hi = mid;
         }
-        return nums[lo] == target ? lo : -1;
+        return lo < nums.length && nums[lo] == target ? lo : -1; //  当搜索的值比数组最大值还要大时，lo=hi=nums.length
     }
 
     // 搜索右侧边界，左闭右开
@@ -53,11 +53,12 @@ public class BinarySearch {
         int lo = 0, hi = nums.length;
         while (lo < hi) {
             int mid = lo + (hi-lo)/2;
+            System.out.println("lo:"+lo+",mid:"+mid+",hi:"+hi);
             if (nums[mid] == target) lo = mid + 1; // 搜索右边界，找到target不要立即返回，而是缩小「搜索区间」的下界lo
             else if (nums[mid] < target) lo = mid + 1;
             else hi = mid;
         }
-        return nums[lo-1] == target ? (lo-1) : -1; // 当搜索条件终止时，nums[lo]一定不等于target，而nums[left-1]可能是target
+        return lo > 0 && nums[lo-1] == target ? (lo-1) : -1; // 当搜索条件终止时，nums[lo]一定不等于target，而nums[left-1]可能是target。当搜索的值比数组最小值还要小时，lo=hi=0
     }
 
     @Test
@@ -89,6 +90,8 @@ public class BinarySearch {
         Assert.assertEquals(3, binarySearch.binarySearchLeftBound(nums, 4));
         Assert.assertEquals(5, binarySearch.binarySearchRightBound(nums, 4));
         Assert.assertEquals(-1, binarySearch.binarySearchLeftBound(nums, 0));
+        Assert.assertEquals(-1, binarySearch.binarySearchLeftBound(nums, 7));
+        Assert.assertEquals(-1, binarySearch.binarySearchRightBound(nums, 0));
         Assert.assertEquals(-1, binarySearch.binarySearchRightBound(nums, 7));
     }
 
