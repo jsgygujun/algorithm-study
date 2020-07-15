@@ -59,7 +59,7 @@
       else if (nums[mid] < target) lo = mid + 1;
       else hi = mid;
     }
-    return nums[lo] == target ? lo : -1;
+    return lo < nums.length && nums[lo] == target ? lo : -1;
   }
   ```
 
@@ -75,8 +75,10 @@
       else if (nums[mid] < target) lo = mid + 1;
       else hi = mid;
     }
-    return nums[lo-1] == target ? (lo-1) : -1; // 当搜索条件终止时，nums[lo]一定不等于target，而nums[left-1]可能是target
+    return lo > 0 && nums[lo-1] == target ? (lo-1) : -1; // 当搜索条件终止时，nums[lo]一定不等于target，而nums[left-1]可能是target
   }
   ```
 
+  ## 经典习题
   
+  * [LeetCode-34在排序数组中查找元素的第一个和最后一个位置](https://github.com/jsgygujun/leetcode-report/blob/master/src/main/java/com/jsgygujun/code/problem/_00001_00100/_00034/Solution.java)
