@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * @author gujun@qiyi.com
+ * @author jsgygujun@gmail.com
  * @since 2020/7/15 3:15 下午
  */
 public class BinarySearch {
